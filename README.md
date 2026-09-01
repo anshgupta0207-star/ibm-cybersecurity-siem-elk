@@ -24,4 +24,3 @@ This project implements a lightweight Security Information and Event Management 
 2. Enable Filebeat system module: `sudo filebeat modules enable system`
 3. Load Kibana assets: `sudo filebeat setup -e`
 4. Access dashboard at `http://localhost:5601`.
-5.
