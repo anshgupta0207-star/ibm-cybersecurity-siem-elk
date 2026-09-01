@@ -1,0 +1,15 @@
+Project Title: Security Information and Event Management (SIEM) Dashboard Implementation via ELK Stack
+1. Executive Summary
+This project demonstrates the setup and deployment of a localized Security Information and Event Management (SIEM) monitoring solution on a Kali Linux environment. Utilizing the Elastic Stack (Filebeat, Elasticsearch, Kibana), the pipeline ingests and parses system authentication telemetry (/var/log/auth.log) to detect real-time security anomalies, track brute-force login attempts, and visualize authentication events inside a Security Operations Center (SOC) dashboard.
+2. Technical Architecture & Pipeline
+Log Collection (Filebeat): Harvests raw system authentication streams, parses log structures, and securely ships formatted event payloads to the indexing engine.
+Storage & Indexing (Elasticsearch): Acts as the central analytics engine, indexing normalized event streams for low-latency security queries.
+Visualization (Kibana): Serves as the primary SOC analyst interface, displaying metrics, log aggregations, and threat distributions.
+3. Core Security Detections
+Brute-Force Monitoring: Tracking high-frequency failed authentication events (event.outcome: failure) within specific time windows.
+Privilege Escalation Audit: Monitoring sudo usage, successful privilege transitions, and unauthorized access attempts.
+Account Targeting Analysis: Aggregating top targeted usernames (e.g., root, invalid_user) to evaluate attack vectors.
+4. Key Takeaways & Technical Insights
+Log Normalization Value: Transforming raw text logs into structured JSON documents is essential for rapid threat correlation and automated detection rules.
+SOC Visibility & MTTD: Centralized dashboarding drastically reduces the Mean Time to Detect (MTTD) security incidents compared to manual log analysis via CLI tools.
+Scalable Ingestion: Utilizing lightweight agents like Filebeat offloads processing load from the primary SIEM server while keeping memory footprints minimal on host OS nodes.
